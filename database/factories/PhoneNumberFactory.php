@@ -17,7 +17,8 @@ class PhoneNumberFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'number' => $this->faker->unique()->phoneNumber,
+            'network_provider' => $this->faker->company,
         ];
     }
 }

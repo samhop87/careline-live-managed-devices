@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('phone_numbers', function (Blueprint $table) {
             $table->id();
             $table->string('number')->unique();
-            $table->string('network_provider'); // is this necessary?
+            $table->string('network_provider')->nullable(); // is this necessary?
             $table->timestamps();
         });
     }

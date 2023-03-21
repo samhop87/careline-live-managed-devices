@@ -3,6 +3,8 @@
 use App\Models\Device;
 use App\Models\SimCard;
 use App\Models\User;
+use App\Types\DeviceType;
+use App\Types\OS;
 
 it('returns a list of devices from the index method', function () {
     Device::factory()->count(5)->create();
@@ -20,13 +22,12 @@ it('can store a new device, associated to an existing user and sim card', functi
     $sim = SimCard::factory()->create();
 
     $response = $this->post('/api/v1/devices', [
-        'type' => 0,
+        'type' => DeviceType::typesCollection()->random(),
         'serial_number' => $this->faker->unique()->uuid,
-        'IMEI' => $this->faker->unique()->uuid,
-        'network_provider' => 'Orange',
+        'imei' => $this->faker->unique()->uuid,
         'manufacturer' => 'Apple',
         'model' => 'iPhone 12',
-        'OS' => 0,
+        'os' => OS::typesCollection()->random(),
         'user_id' => $user->id,
         'sim_card_id' => $sim->id,
     ]);
@@ -42,9 +43,9 @@ it('can store a new device, associated to an existing user and sim card', functi
             'manufacturer',
             'model',
             'OS',
-            'user_id',
+            'current_user',
             'is_active',
         ])
-        ->and($response->json()['data']['user_id'])
+        ->and($response->json()['data']['current_user'][0]['id'])
         ->toBe($user->id);
 });

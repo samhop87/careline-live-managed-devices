@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('sim_cards', function (Blueprint $table) {
             $table->id();
             $table->string('network_provider');
-            $table->integer('phone_number_id');
+            $table->unsignedBigInteger('phone_number_id');
             $table->timestamps();
+
+            $table->foreign('phone_number_id')->references('id')->on('phone_numbers');
         });
     }
 

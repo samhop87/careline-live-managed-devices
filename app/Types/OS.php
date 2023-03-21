@@ -2,6 +2,8 @@
 
 namespace App\Types;
 
+use Illuminate\Support\Collection;
+
 class OS
 {
     public const IOS = 0;
@@ -31,16 +33,16 @@ class OS
     public const MAEMO_STRING = 'maemo';
 
 
-    public static function typesArray(): array
+    public static function typesCollection(): Collection
     {
-        return [
+        return collect([
             self::IOS => self::IOS_STRING,
             self::ANDROID => self::ANDROID_STRING,
             self::WINDOWS => self::WINDOWS_STRING,
             self::BADA => self::BADA_STRING,
             self::BLACKBERRY => self::BLACKBERRY_STRING,
             self::MAEMO => self::MAEMO_STRING,
-        ];
+        ]);
     }
 
     public static function toString(?int $type): string|null

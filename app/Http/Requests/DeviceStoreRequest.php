@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Types\DeviceType;
+use App\Types\OS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeviceStoreRequest extends FormRequest
@@ -25,7 +26,6 @@ class DeviceStoreRequest extends FormRequest
         $standardRule = ['required', 'string', 'max:255'];
 
         return [
-            'name' => $standardRule,
             'imei' => $standardRule,
             'sim_card_id' => ['required', 'integer', 'exists:sim_cards,id'],
             'user_id' => ['required', 'integer', 'exists:users,id'],
@@ -34,7 +34,16 @@ class DeviceStoreRequest extends FormRequest
             'os' => $standardRule,
             'type' => ['required', 'string', 'in:'. DeviceType::typesCollection()->implode(',')],
             'serial_number' => $standardRule,
-            'network_provider' => $standardRule,
         ];
+    }
+
+    public function passedValidation()
+    {
+        $data = $this->validated();
+
+        $data['os'] = OS::toInt($this->os);
+        $data['type'] = DeviceType::toInt($this->type);
+
+        $this->replace($data);
     }
 }

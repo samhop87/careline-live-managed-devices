@@ -19,23 +19,18 @@ class DeviceController extends Controller
     }
 
     public function store(DeviceStoreRequest $request): JsonResponse
-    {
-        dd($request->validated());
-        // create new device
+    {// create new device
         $device = DB::transaction(function () use ($request) {
-            $device = Device::create($request->validated());
+            $device = Device::create($request->all());
 
             $user = User::findOrFail($request->user_id);
 
             $user->devices()->attach($device);
 
-            $device->simCard()->attach($request->sim_card_id);
-
             return $device;
         });
 
         if (!$device) {
-            dd('hit');
             return response()->json([
                 'message' => 'Device could not be created',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);

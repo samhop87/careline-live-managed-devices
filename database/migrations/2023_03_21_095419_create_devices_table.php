@@ -21,10 +21,12 @@ return new class extends Migration
             $table->integer('OS');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('sim_card_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('sim_card_id')->references('id')->on('sim_cards');
         });
     }
 
