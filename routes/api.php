@@ -21,10 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'devices'], function () {
-        Route::get('/', [DeviceController::class, 'index']);
-        Route::get('/{device}', [DeviceController::class, 'show']);
-        Route::post('/', [DeviceController::class, 'store']);
-        Route::put('/{device}', [DeviceController::class, 'update']);
-        Route::delete('/{device}', [DeviceController::class, 'destroy']);
+        Route::get('/', [DeviceController::class, 'index'])->name('devices.index');
+        Route::get('/{device}', [DeviceController::class, 'show'])->name('devices.show');
+        Route::post('/', [DeviceController::class, 'store'])->name('devices.store');
     });
 });

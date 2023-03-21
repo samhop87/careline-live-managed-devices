@@ -22,7 +22,7 @@ class DeviceResource extends JsonResource
             'IMEI' => $this->IMEI,
             'manufacturer' => $this->manufacturer,
             'model' => $this->model,
-            'OS' => OS::toString($this->OS),
+            'OS' => OS::toString($this->os),
             'current_user' => new UserResource($this->user),
             'is_active' => $this->is_active,
         ];

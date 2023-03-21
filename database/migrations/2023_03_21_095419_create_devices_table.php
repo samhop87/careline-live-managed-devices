@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('type');
             $table->string('serial_number')->unique();
-            $table->string('IMEI')->unique();
+            $table->string('imei')->unique();
             $table->string('manufacturer');
             $table->string('model');
-            $table->integer('OS');
+            $table->integer('os');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('sim_card_id')->nullable();

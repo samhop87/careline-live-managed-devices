@@ -10,10 +10,52 @@ it('returns a list of devices from the index method', function () {
     Device::factory()->count(5)->create();
 
     $response = $this->get('/api/v1/devices');
+
     expect($response)
         ->status()->toBe(200)
         ->and($response->json()['data'])
         ->toHaveCount(5);
+});
+
+it('returns a list of devices filtered by operating system', function () {
+    $droidCount = $this->faker->randomNumber(1);
+    $appleCount = $this->faker->randomNumber(1);
+    $blackberryCount = $this->faker->randomNumber(1);
+
+    Device::factory()->count($droidCount)->create([
+        'os' => OS::ANDROID
+    ]);
+
+    Device::factory()->count($appleCount)->create([
+        'os' => OS::IOS
+    ]);
+
+    Device::factory()->count($blackberryCount)->create([
+        'os' => OS::BLACKBERRY
+    ]);
+
+    $arrayParam = [
+        'operating_system' => [OS::ANDROID_STRING]
+    ];
+
+    $response = $this->getJson(route('devices.index', $arrayParam));
+
+    expect($response)
+        ->status()->toBe(200)
+        ->and($response->json()['data'])
+        ->toHaveCount($droidCount);
+
+    $arrayParam = [
+        'operating_system' => [OS::ANDROID_STRING, OS::BLACKBERRY_STRING]
+    ];
+
+    $response = $this->getJson(route('devices.index', $arrayParam));
+
+    expect($response)
+        ->status()->toBe(200)
+        ->and($response->json()['data'])
+        ->toHaveCount($droidCount + $blackberryCount);
+
 });
 
 it('can store a new device, associated to an existing user and sim card', function() {

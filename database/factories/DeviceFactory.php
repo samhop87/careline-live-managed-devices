@@ -23,7 +23,7 @@ class DeviceFactory extends Factory
             'IMEI' => $this->faker->unique()->uuid,
             'manufacturer' => $this->faker->company,
             'model' => $this->faker->word,
-            'OS' => $this->faker->numberBetween(0, 5),
+            'os' => $this->faker->numberBetween(0, 5),
             'user_id' => User::factory(),
             'is_active' => true,
         ];
