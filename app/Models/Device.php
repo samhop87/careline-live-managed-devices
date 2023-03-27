@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\DeviceTypeEnum;
+use App\Enums\OsEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -13,6 +15,11 @@ class Device extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'type' => DeviceTypeEnum::class,
+        'os' => OsEnum::class,
+    ];
 
     public function user(): BelongsToMany
     {

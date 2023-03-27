@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Types\OS;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,7 +21,7 @@ class DeviceResource extends JsonResource
             'IMEI' => $this->IMEI,
             'manufacturer' => $this->manufacturer,
             'model' => $this->model,
-            'OS' => OS::toString($this->os),
+            'os' => $this->os,
             'current_user' => new UserResource($this->user),
             'is_active' => $this->is_active,
         ];

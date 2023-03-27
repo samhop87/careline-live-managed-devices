@@ -1,10 +1,10 @@
 <?php
 
+use App\Enums\DeviceTypeEnum;
+use App\Enums\OsEnum;
 use App\Models\Device;
 use App\Models\SimCard;
 use App\Models\User;
-use App\Types\DeviceType;
-use App\Types\OS;
 
 it('returns a list of devices from the index method', function () {
     Device::factory()->count(5)->create();
@@ -23,19 +23,19 @@ it('returns a list of devices filtered by operating system', function () {
     $blackberryCount = $this->faker->randomNumber(1);
 
     Device::factory()->count($droidCount)->create([
-        'os' => OS::ANDROID
+        'os' => OsEnum::ANDROID
     ]);
 
     Device::factory()->count($appleCount)->create([
-        'os' => OS::IOS
+        'os' => OsEnum::IOS
     ]);
 
     Device::factory()->count($blackberryCount)->create([
-        'os' => OS::BLACKBERRY
+        'os' => OsEnum::BLACKBERRY
     ]);
 
     $arrayParam = [
-        'operating_system' => [OS::ANDROID_STRING]
+        'operating_system' => [OsEnum::ANDROID->value]
     ];
 
     $response = $this->getJson(route('devices.index', $arrayParam));
@@ -46,7 +46,7 @@ it('returns a list of devices filtered by operating system', function () {
         ->toHaveCount($droidCount);
 
     $arrayParam = [
-        'operating_system' => [OS::ANDROID_STRING, OS::BLACKBERRY_STRING]
+        'operating_system' => [OsEnum::ANDROID->value, OsEnum::BLACKBERRY->value]
     ];
 
     $response = $this->getJson(route('devices.index', $arrayParam));
@@ -64,12 +64,12 @@ it('can store a new device, associated to an existing user and sim card', functi
     $sim = SimCard::factory()->create();
 
     $response = $this->post('/api/v1/devices', [
-        'type' => DeviceType::typesCollection()->random(),
+        'type' => collect(DeviceTypeEnum::cases())->random()->value,
         'serial_number' => $this->faker->unique()->uuid,
         'imei' => $this->faker->unique()->uuid,
         'manufacturer' => 'Apple',
         'model' => 'iPhone 12',
-        'os' => OS::typesCollection()->random(),
+        'os' => collect(OsEnum::cases())->random()->value,
         'user_id' => $user->id,
         'sim_card_id' => $sim->id,
     ]);
@@ -84,7 +84,7 @@ it('can store a new device, associated to an existing user and sim card', functi
             'IMEI',
             'manufacturer',
             'model',
-            'OS',
+            'os',
             'current_user',
             'is_active',
         ])

@@ -47,23 +47,23 @@ paths:
                 example:
                   data:
                     -
-                      id: 19
-                      type: 0
-                      serial_number: 5b9ec92b-292b-349d-8a5e-3b5feb8bdb81
-                      IMEI: 80ecde04-5c27-3ea9-867d-ca91fa2f6d2b
-                      manufacturer: 'Casper Inc'
-                      model: eos
-                      OS: android
+                      id: 27
+                      type: phone
+                      serial_number: cc708e51-5af6-323e-b39b-30a3341609a9
+                      IMEI: 70f67540-6d1d-397d-a833-3631203b9a44
+                      manufacturer: "Walter, O'Keefe and Kuhic"
+                      model: velit
+                      os: android
                       current_user: []
                       is_active: true
                     -
-                      id: 20
-                      type: 1
-                      serial_number: d11c0aa0-d034-37f4-9fc1-25f3b4b86d47
-                      IMEI: a9dae827-0f59-3ca0-8866-a2c30f440e94
-                      manufacturer: 'Will PLC'
-                      model: enim
-                      OS: bada
+                      id: 28
+                      type: phone
+                      serial_number: 095868f8-cedc-3e9e-a663-06b72976276a
+                      IMEI: 0e596a84-6c9b-351c-9456-5579dd97d3ba
+                      manufacturer: "Gutkowski, D'Amore and Hirthe"
+                      model: voluptas
+                      os: android
                       current_user: []
                       is_active: true
                 properties:
@@ -71,23 +71,23 @@ paths:
                     type: array
                     example:
                       -
-                        id: 19
-                        type: 0
-                        serial_number: 5b9ec92b-292b-349d-8a5e-3b5feb8bdb81
-                        IMEI: 80ecde04-5c27-3ea9-867d-ca91fa2f6d2b
-                        manufacturer: 'Casper Inc'
-                        model: eos
-                        OS: android
+                        id: 27
+                        type: phone
+                        serial_number: cc708e51-5af6-323e-b39b-30a3341609a9
+                        IMEI: 70f67540-6d1d-397d-a833-3631203b9a44
+                        manufacturer: "Walter, O'Keefe and Kuhic"
+                        model: velit
+                        os: android
                         current_user: []
                         is_active: true
                       -
-                        id: 20
-                        type: 1
-                        serial_number: d11c0aa0-d034-37f4-9fc1-25f3b4b86d47
-                        IMEI: a9dae827-0f59-3ca0-8866-a2c30f440e94
-                        manufacturer: 'Will PLC'
-                        model: enim
-                        OS: bada
+                        id: 28
+                        type: phone
+                        serial_number: 095868f8-cedc-3e9e-a663-06b72976276a
+                        IMEI: 0e596a84-6c9b-351c-9456-5579dd97d3ba
+                        manufacturer: "Gutkowski, D'Amore and Hirthe"
+                        model: voluptas
+                        os: android
                         current_user: []
                         is_active: true
                     items:
@@ -95,23 +95,23 @@ paths:
                       properties:
                         id:
                           type: integer
-                          example: 19
+                          example: 27
                         type:
-                          type: integer
-                          example: 0
+                          type: string
+                          example: phone
                         serial_number:
                           type: string
-                          example: 5b9ec92b-292b-349d-8a5e-3b5feb8bdb81
+                          example: cc708e51-5af6-323e-b39b-30a3341609a9
                         IMEI:
                           type: string
-                          example: 80ecde04-5c27-3ea9-867d-ca91fa2f6d2b
+                          example: 70f67540-6d1d-397d-a833-3631203b9a44
                         manufacturer:
                           type: string
-                          example: 'Casper Inc'
+                          example: "Walter, O'Keefe and Kuhic"
                         model:
                           type: string
-                          example: eos
-                        OS:
+                          example: velit
+                        os:
                           type: string
                           example: android
                         current_user:
@@ -170,7 +170,7 @@ paths:
                     IMEI: 7107bf1d-4e42-31b2-aecc-ee95bedd3308
                     manufacturer: 'Ebert, Jaskolski and Littel'
                     model: illum
-                    OS: maemo
+                    os: maemo
                     current_user: []
                     is_active: true
                 properties:
@@ -198,7 +198,7 @@ paths:
                       model:
                         type: string
                         example: illum
-                      OS:
+                      os:
                         type: string
                         example: maemo
                       current_user:
@@ -223,7 +223,7 @@ paths:
                 sim_card_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 2
                 user_id:
                   type: integer
                   description: 'The id of the user to associate the device with.'
@@ -231,7 +231,7 @@ paths:
                 model:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: vflgejddoqmheao
+                  example: wetxvewefv
                 manufacturer:
                   type: string
                   description: 'The manufacturer of the device.'
@@ -327,7 +327,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Device] 6'
+                  message: 'No query results for model [App\Models\Device] 15'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: /Users/samhopkinson/webroot/careline-live-managed-devices/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php
                   line: 408
@@ -677,7 +677,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Device] 6'
+                    example: 'No query results for model [App\Models\Device] 15'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1058,7 +1058,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the device.'
-        example: 6
+        example: 15
         required: true
         schema:
           type: integer

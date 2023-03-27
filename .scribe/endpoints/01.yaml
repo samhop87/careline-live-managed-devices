@@ -42,7 +42,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":19,"type":0,"serial_number":"5b9ec92b-292b-349d-8a5e-3b5feb8bdb81","IMEI":"80ecde04-5c27-3ea9-867d-ca91fa2f6d2b","manufacturer":"Casper Inc","model":"eos","OS":"android","current_user":[],"is_active":true},{"id":20,"type":1,"serial_number":"d11c0aa0-d034-37f4-9fc1-25f3b4b86d47","IMEI":"a9dae827-0f59-3ca0-8866-a2c30f440e94","manufacturer":"Will PLC","model":"enim","OS":"bada","current_user":[],"is_active":true}]}'
+        content: '{"data":[{"id":27,"type":"phone","serial_number":"cc708e51-5af6-323e-b39b-30a3341609a9","IMEI":"70f67540-6d1d-397d-a833-3631203b9a44","manufacturer":"Walter, O''Keefe and Kuhic","model":"velit","os":"android","current_user":[],"is_active":true},{"id":28,"type":"phone","serial_number":"095868f8-cedc-3e9e-a663-06b72976276a","IMEI":"0e596a84-6c9b-351c-9456-5579dd97d3ba","manufacturer":"Gutkowski, D''Amore and Hirthe","model":"voluptas","os":"android","current_user":[],"is_active":true}]}'
         headers: []
         description: ''
         custom: []
@@ -84,7 +84,7 @@ endpoints:
         name: sim_card_id
         description: ''
         required: true
-        example: 7
+        example: 2
         type: integer
         custom: []
       user_id:
@@ -98,7 +98,7 @@ endpoints:
         name: model
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: vflgejddoqmheao
+        example: wetxvewefv
         type: string
         custom: []
       manufacturer:
@@ -138,9 +138,9 @@ endpoints:
         custom: []
     cleanBodyParameters:
       imei: '123456789'
-      sim_card_id: 7
+      sim_card_id: 2
       user_id: 1
-      model: vflgejddoqmheao
+      model: wetxvewefv
       manufacturer: Apple
       os: ios
       type: phone
@@ -160,7 +160,7 @@ endpoints:
           "IMEI": "7107bf1d-4e42-31b2-aecc-ee95bedd3308",
           "manufacturer": "Ebert, Jaskolski and Littel",
           "model": "illum",
-          "OS": "maemo",
+          "os": "maemo",
           "current_user": [],
           "is_active": true
           }
