@@ -55,7 +55,7 @@ class DeviceController extends Controller
      * "IMEI": "7107bf1d-4e42-31b2-aecc-ee95bedd3308",
      * "manufacturer": "Ebert, Jaskolski and Littel",
      * "model": "illum",
-     * "OS": "maemo",
+     * "os": "maemo",
      * "current_user": [],
      * "is_active": true
      * }

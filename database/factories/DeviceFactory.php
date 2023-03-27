@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\DeviceTypeEnum;
+use App\Enums\OsEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,12 +20,12 @@ class DeviceFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => $this->faker->numberBetween(0,1),
+            'type' => DeviceTypeEnum::PHONE,
             'serial_number' => $this->faker->unique()->uuid,
             'IMEI' => $this->faker->unique()->uuid,
             'manufacturer' => $this->faker->company,
             'model' => $this->faker->word,
-            'os' => $this->faker->numberBetween(0, 5),
+            'os' => OsEnum::ANDROID,
             'user_id' => User::factory(),
             'is_active' => true,
         ];

@@ -101,7 +101,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 21, 2023</li>
+        <li>Last updated: March 27, 2023</li>
     </ul>
 </div>
 
@@ -174,24 +174,24 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 19,
-            &quot;type&quot;: 0,
-            &quot;serial_number&quot;: &quot;5b9ec92b-292b-349d-8a5e-3b5feb8bdb81&quot;,
-            &quot;IMEI&quot;: &quot;80ecde04-5c27-3ea9-867d-ca91fa2f6d2b&quot;,
-            &quot;manufacturer&quot;: &quot;Casper Inc&quot;,
-            &quot;model&quot;: &quot;eos&quot;,
-            &quot;OS&quot;: &quot;android&quot;,
+            &quot;id&quot;: 27,
+            &quot;type&quot;: &quot;phone&quot;,
+            &quot;serial_number&quot;: &quot;cc708e51-5af6-323e-b39b-30a3341609a9&quot;,
+            &quot;IMEI&quot;: &quot;70f67540-6d1d-397d-a833-3631203b9a44&quot;,
+            &quot;manufacturer&quot;: &quot;Walter, O&#039;Keefe and Kuhic&quot;,
+            &quot;model&quot;: &quot;velit&quot;,
+            &quot;os&quot;: &quot;android&quot;,
             &quot;current_user&quot;: [],
             &quot;is_active&quot;: true
         },
         {
-            &quot;id&quot;: 20,
-            &quot;type&quot;: 1,
-            &quot;serial_number&quot;: &quot;d11c0aa0-d034-37f4-9fc1-25f3b4b86d47&quot;,
-            &quot;IMEI&quot;: &quot;a9dae827-0f59-3ca0-8866-a2c30f440e94&quot;,
-            &quot;manufacturer&quot;: &quot;Will PLC&quot;,
-            &quot;model&quot;: &quot;enim&quot;,
-            &quot;OS&quot;: &quot;bada&quot;,
+            &quot;id&quot;: 28,
+            &quot;type&quot;: &quot;phone&quot;,
+            &quot;serial_number&quot;: &quot;095868f8-cedc-3e9e-a663-06b72976276a&quot;,
+            &quot;IMEI&quot;: &quot;0e596a84-6c9b-351c-9456-5579dd97d3ba&quot;,
+            &quot;manufacturer&quot;: &quot;Gutkowski, D&#039;Amore and Hirthe&quot;,
+            &quot;model&quot;: &quot;voluptas&quot;,
+            &quot;os&quot;: &quot;android&quot;,
             &quot;current_user&quot;: [],
             &quot;is_active&quot;: true
         }
@@ -304,9 +304,9 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"imei\": \"123456789\",
-    \"sim_card_id\": 7,
+    \"sim_card_id\": 2,
     \"user_id\": 1,
-    \"model\": \"vflgejddoqmheao\",
+    \"model\": \"wetxvewefv\",
     \"manufacturer\": \"Apple\",
     \"os\": \"ios\",
     \"type\": \"phone\",
@@ -328,9 +328,9 @@ const headers = {
 
 let body = {
     "imei": "123456789",
-    "sim_card_id": 7,
+    "sim_card_id": 2,
     "user_id": 1,
-    "model": "vflgejddoqmheao",
+    "model": "wetxvewefv",
     "manufacturer": "Apple",
     "os": "ios",
     "type": "phone",
@@ -361,7 +361,7 @@ fetch(url, {
         &quot;IMEI&quot;: &quot;7107bf1d-4e42-31b2-aecc-ee95bedd3308&quot;,
         &quot;manufacturer&quot;: &quot;Ebert, Jaskolski and Littel&quot;,
         &quot;model&quot;: &quot;illum&quot;,
-        &quot;OS&quot;: &quot;maemo&quot;,
+        &quot;os&quot;: &quot;maemo&quot;,
         &quot;current_user&quot;: [],
         &quot;is_active&quot;: true
     }
@@ -447,10 +447,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="sim_card_id"                data-endpoint="POSTapi-v1-devices"
-               value="7"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>7</code></p>
+<p>Example: <code>2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -469,10 +469,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="model"                data-endpoint="POSTapi-v1-devices"
-               value="vflgejddoqmheao"
+               value="wetxvewefv"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vflgejddoqmheao</code></p>
+<p>Must not be greater than 255 characters. Example: <code>wetxvewefv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>manufacturer</code></b>&nbsp;&nbsp;
@@ -664,14 +664,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/devices/6" \
+    --get "http://localhost/api/v1/devices/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/devices/6"
+    "http://localhost/api/v1/devices/15"
 );
 
 const headers = {
@@ -702,7 +702,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\Device] 6&quot;,
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Device] 15&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;/Users/samhopkinson/webroot/careline-live-managed-devices/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php&quot;,
     &quot;line&quot;: 408,
@@ -1178,10 +1178,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="GETapi-v1-devices--id-"
-               value="6"
+               value="15"
                data-component="url">
     <br>
-<p>The ID of the device. Example: <code>6</code></p>
+<p>The ID of the device. Example: <code>15</code></p>
             </div>
                     </form>
 

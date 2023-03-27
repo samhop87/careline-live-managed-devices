@@ -2,8 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Types\DeviceType;
-use App\Types\OS;
+use App\Enums\DeviceTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeviceStoreRequest extends FormRequest
@@ -25,6 +24,10 @@ class DeviceStoreRequest extends FormRequest
     {
         $standardRule = ['required', 'string', 'max:255'];
 
+        $values = collect(DeviceTypeEnum::cases())->map(function ($type) {
+            return $type->value;
+        })->implode(',');
+
         return [
             'imei' => $standardRule,
             'sim_card_id' => ['required', 'integer', 'exists:sim_cards,id'],
@@ -32,18 +35,8 @@ class DeviceStoreRequest extends FormRequest
             'model' => $standardRule,
             'manufacturer' => $standardRule,
             'os' => $standardRule,
-            'type' => ['required', 'string', 'in:'. DeviceType::typesCollection()->implode(',')],
+            'type' => ['required', 'string', 'in:'. $values],
             'serial_number' => $standardRule,
         ];
-    }
-
-    public function passedValidation()
-    {
-        $data = $this->validated();
-
-        $data['os'] = OS::toInt($this->os);
-        $data['type'] = DeviceType::toInt($this->type);
-
-        $this->replace($data);
     }
 }

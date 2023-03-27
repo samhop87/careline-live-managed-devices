@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Types\OS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeviceIndexRequest extends FormRequest
@@ -25,23 +24,5 @@ class DeviceIndexRequest extends FormRequest
         return [
             'operating_system' => 'array',
         ];
-    }
-
-    public function passedValidation()
-    {
-        $data = $this->validated();
-
-        if (!isset($data['operating_system'])) {
-            return;
-        }
-
-        $operating_system  = [];
-        foreach($data['operating_system'] as $os) {
-            $operating_system[] = OS::toInt($os);
-        }
-
-        $data['operating_system'] = $operating_system;
-
-        $this->replace($data);
     }
 }
